@@ -1,0 +1,11 @@
+<h1><%= @attraction.name %></h1>
+
+<p><%= link_to('Edit Attraction', edit_attraction_path(@attraction)) if admin? %></p>
+<p><%= link_to('Delete Attraction', attraction_path(@attraction), method: :delete, data: { confirm: 'Are you sure?' }) if admin? %></p>
+
+<p>Minimum Height: <%= @attraction.min_height %></p>
+<p>Nausea Rating: <%= @attraction.nausea_rating %></p>
+<p>Happiness: <%= @attraction.happiness_rating %></p>
+<p>Tickets Required: <%= @attraction.tickets %></p>
+
+<%= button_to 'Go on this ride', attraction_rides_path(@attraction) if !admin? %>
